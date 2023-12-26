@@ -40,7 +40,7 @@ const ProductList: React.FC = () => {
       <h1>Product List</h1>
       <ul className="flex flex-wrap items-center justify-center">
         {products.map((product) => (
-          <li className="w-[180px] h-[370px] mx-1 md:m-2" key={product.id}>
+          <li className="w-[180px] h-[370px] mx-1 md:m-2 " key={product.id}>
             <div className="relative">
               <img
                 className=" aspect-[2/3]"
@@ -57,6 +57,9 @@ const ProductList: React.FC = () => {
                 }
                 label=""
               />
+              <div className="absolute bottom-0 text-center text-white bg-blue-500 w-full font-bold p-1">
+                View Product
+              </div>
             </div>
             <h3 className="font-[500]">{product.name}</h3>
             <p className="text-blue-600 font-[500]">
