@@ -1,3 +1,15 @@
+import React from 'react';
+
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
 interface Suggestion {
   id: number;
   name: string;
@@ -6,19 +18,30 @@ interface Suggestion {
   reviews: number;
 }
 
+interface SearchSuggestionProps {
+  latestTrends: Product[];
+  popularSuggestions: string[];
+}
+
 const SearchSuggestion = ({
   latestTrends,
   popularSuggestions,
-}: {
-  latestTrends: Suggestion[];
-  popularSuggestions: string[];
-}) => {
+}: SearchSuggestionProps) => {
+  // Transform Product to Suggestion type
+  const transformedLatestTrends: Suggestion[] = latestTrends.map((product) => ({
+    id: product.id,
+    name: product.title,
+    image: product.image,
+    rating: product.rating.rate,
+    reviews: product.rating.count,
+  }));
+
   return (
     <div className="absolute bg-white shadow-xl border-t-[1px] border-solid border-gray-300 mt-2 p-2 w-11/12 md:w-[60%] mx-auto z-10 left-0 right-0 md:p-5">
       <div>
         <h2 className="text-lg font-bold mb-2">Latest Trends</h2>
         <div className="flex items-center justify-between flex-wrap">
-          {latestTrends.map((item) => (
+          {transformedLatestTrends.map((item) => (
             <div key={item.id} className="w-[18%]">
               <img
                 src={item.image}
@@ -33,8 +56,8 @@ const SearchSuggestion = ({
 
       <div>
         <h2 className="text-lg font-bold mt-4 mb-2">Popular Suggestions</h2>
-        {popularSuggestions.map((suggestion) => (
-          <p className="text-xs" key={suggestion}>
+        {popularSuggestions.map((suggestion, index) => (
+          <p className="text-xs" key={index}>
             {suggestion}
           </p>
         ))}

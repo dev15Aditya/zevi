@@ -4,6 +4,8 @@ import ProductCard from './components/ProductCard';
 
 function App() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchInitiated, setSearchInitiated] = useState(false);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -11,11 +13,15 @@ function App() {
       .then((json) => setData(json));
   }, []);
 
-  console.log(data);
+  const handleSearch = (filteredData: any) => {
+    setFilteredData(filteredData);
+    setSearchInitiated(true);
+  };
+
   return (
     <div>
-      <SearchBar />
-      <ProductCard data={data} />
+      <SearchBar data={data} onSearch={handleSearch} />
+      {searchInitiated && <ProductCard data={filteredData} />}
     </div>
   );
 }

@@ -23,14 +23,14 @@ const Card: React.FC<CardProps> = ({
   review,
 }: CardProps) => {
   return (
-    <li className="w-[180px] h-[370px] mx-1 md:m-2 " key={id}>
+    <li className="w-[180px] h-[350px] mx-1 md:m-2 shadow mb-2" key={id}>
       <div className="relative">
         <img className="aspect-[2/3]" src={photo} alt={name} />
         <FormControlLabel
           className="absolute top-0 right-0"
           control={
             <Checkbox
-              icon={<FavoriteBorderIcon className="text-white" />}
+              icon={<FavoriteBorderIcon className="text-gray-300" />}
               checkedIcon={<FavoriteIcon className="text-red-700" />}
             />
           }
@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({
           View Product
         </div>
       </div>
-      <h3 className="font-[500]">{name}</h3>
+      <h3 className="font-[500] truncate">{name}</h3>
       <p className="text-blue-600 font-[500]">
         <del className="text-gray-400 font-light">
           Rs{parseInt(price, 10) + 100}

@@ -4,13 +4,13 @@ import RatingFilter from './RatingFilter';
 
 const brand = [
   {
-    value: ['Mango', 'H&M'],
-    title: 'BRAND',
+    value: ['Man', 'Women'],
+    title: 'Category',
   },
 ];
 const price = [
   {
-    value: ['Under 500', '1000 to 3000'],
+    value: ['Under 500', 'Above 500'],
     title: 'PRICE RANGE',
   },
 ];
