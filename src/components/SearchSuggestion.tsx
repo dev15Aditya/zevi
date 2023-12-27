@@ -27,7 +27,6 @@ const SearchSuggestion = ({
   latestTrends,
   popularSuggestions,
 }: SearchSuggestionProps) => {
-  // Transform Product to Suggestion type
   const transformedLatestTrends: Suggestion[] = latestTrends.map((product) => ({
     id: product.id,
     name: product.title,
@@ -37,7 +36,7 @@ const SearchSuggestion = ({
   }));
 
   return (
-    <div className="absolute bg-white shadow-xl border-t-[1px] border-solid border-gray-300 mt-2 p-2 w-11/12 md:w-[60%] mx-auto z-10 left-0 right-0 md:p-5">
+    <div className="absolute bg-white shadow-xl border-y-[1px] border-solid border-gray-300 mt-2 p-2 w-11/12 md:w-[60%] mx-auto z-10 left-0 right-0 md:p-5">
       <div>
         <h2 className="text-lg font-bold mb-2">Latest Trends</h2>
         <div className="flex items-center justify-between flex-wrap">
