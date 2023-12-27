@@ -1,5 +1,5 @@
 import React from 'react';
-import { faker } from '@faker-js/faker';
+import { generateProduct } from './fakerData';
 
 import Rating from '@mui/material/Rating';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,33 +7,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Checkbox from '@mui/material/Checkbox';
 
-interface Product {
-  id: number;
-  name: string;
-  photo: string;
-  price: string;
-  rating: number;
-  review: number;
-}
-
-const generateProducts = (count: number): Product[] => {
-  const products: Product[] = [];
-  for (let i = 0; i < count; i++) {
-    const product: Product = {
-      id: i + 1,
-      name: faker.commerce.productName(),
-      photo: faker.image.url(),
-      price: faker.commerce.price(),
-      rating: faker.number.float({ min: 0, max: 5, precision: 0.1 }),
-      review: faker.number.int({ min: 0, max: 1000 }),
-    };
-    products.push(product);
-  }
-  return products;
-};
-
 const ProductList: React.FC = () => {
-  const products: Product[] = generateProducts(10);
+  const products = generateProduct(10);
 
   return (
     <div>
