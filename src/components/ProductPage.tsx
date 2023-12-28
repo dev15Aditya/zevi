@@ -27,7 +27,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
   onBackClick,
 }: ProductPageProps) => {
   return (
-    <div className="p-2 shadow-sm my-3">
+    <div className="p-2 shadow-sm my-3 bg-white">
       <hr />
       <button
         className="flex items-center bg-green-400 py-1 px-2 rounded-md"

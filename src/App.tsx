@@ -19,9 +19,12 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="relative">
       <SearchBar data={data} onSearch={handleSearch} />
-      {searchInitiated && <ProductCard data={filteredData} />}
+
+      <div className="background-image">
+        {searchInitiated ? <ProductCard data={filteredData} /> : null}
+      </div>
     </div>
   );
 }

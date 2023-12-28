@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({
     );
   }
   return (
-    <li className="w-[180px] h-[350px] m-2 shadow" key={id}>
+    <li className="w-[170px] md:w-[180px] h-[350px] m-1 md:m-2 shadow" key={id}>
       <div className="relative">
         <img
           onClick={handleCardClick}
