@@ -11,6 +11,7 @@ interface Product {
     rate: number;
     count: number;
   };
+  description: string;
 }
 
 interface ProductListProps {
@@ -33,6 +34,7 @@ const ProductList: React.FC<ProductListProps> = ({ data }) => {
               photo={product.image}
               rating={product.rating.rate}
               review={product.rating.count}
+              description={product.description}
             />
           ))}
         </ul>

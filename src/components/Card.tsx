@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Rating from '@mui/material/Rating';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Checkbox from '@mui/material/Checkbox';
+
+import ProductPage from './ProductPage';
 
 interface CardProps {
   id: number;
@@ -12,6 +14,7 @@ interface CardProps {
   price: string;
   rating: number;
   review: number;
+  description: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -21,9 +24,32 @@ const Card: React.FC<CardProps> = ({
   price,
   rating,
   review,
+  description,
 }: CardProps) => {
+  const [showProduct, setShowProduct] = useState(false);
+
+  const handleCardClick = () => {
+    setShowProduct(true);
+  };
+
+  const handleBackClick = () => {
+    setShowProduct(false);
+  };
+
+  if (showProduct) {
+    return (
+      <ProductPage
+        {...{ id, name, photo, price, rating, review, description }}
+        onBackClick={handleBackClick}
+      />
+    );
+  }
   return (
-    <li className="w-[180px] h-[350px] mx-1 md:m-2 shadow mb-2" key={id}>
+    <li
+      className="w-[180px] h-[350px] mx-1 md:m-2 shadow mb-2"
+      key={id}
+      onClick={handleCardClick}
+    >
       <div className="relative">
         <img className="aspect-[2/3]" src={photo} alt={name} />
         <FormControlLabel

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MultipleSelectCheckmarks from './MultipleSelect';
+import MultipleSelect from './MultipleSelect';
 import RatingFilter from './RatingFilter';
 
 const brand = [
@@ -28,13 +28,13 @@ export default function Filter() {
 
   return (
     <div>
-      <MultipleSelectCheckmarks
+      <MultipleSelect
         filters={brand}
         onChange={handleBrandFilter}
         filter={filter.brand}
       />
       <hr />
-      <MultipleSelectCheckmarks
+      <MultipleSelect
         filters={price}
         onChange={handlePriceFilter}
         filter={filter.price}

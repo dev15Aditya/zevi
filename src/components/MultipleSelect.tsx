@@ -1,9 +1,23 @@
-import React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-export default function MultipleSelect({ filters, onChange, filter }) {
+interface filterProps {
+  title: string;
+  value: string[];
+}
+
+interface MultipleSelectProps {
+  filters: filterProps[];
+  onChange: (filter: any) => void;
+  filter: any;
+}
+
+export default function MultipleSelect({
+  filters,
+  onChange,
+  filter,
+}: MultipleSelectProps) {
   return (
     <div>
       {filters.map((filterGroup) => (

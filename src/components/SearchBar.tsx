@@ -31,16 +31,14 @@ const SearchBar = ({ data, onSearch }: ProductListProps) => {
   const handleFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    // Perform filtering based on the search term
     const filteredData = data.filter((item) =>
       item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Pass the filtered data to the parent component
     onSearch(filteredData);
 
-    // Hide suggestions after submit
     setShowDropDown(false);
+    setSearchTerm('');
   };
 
   const handleClickOutside = (event: MouseEvent) => {
