@@ -45,13 +45,15 @@ const Card: React.FC<CardProps> = ({
     );
   }
   return (
-    <li
-      className="w-[180px] h-[350px] mx-1 md:m-2 shadow mb-2"
-      key={id}
-      onClick={handleCardClick}
-    >
+    <li className="w-[180px] h-[350px] m-2 shadow" key={id}>
       <div className="relative">
-        <img className="aspect-[2/3]" src={photo} alt={name} />
+        <img
+          onClick={handleCardClick}
+          className="aspect-[2/3]"
+          src={photo}
+          alt={name}
+        />
+
         <FormControlLabel
           className="absolute top-0 right-0"
           control={
@@ -62,18 +64,23 @@ const Card: React.FC<CardProps> = ({
           }
           label=""
         />
-        <div className="absolute bottom-0 text-center text-white bg-blue-500 w-full font-bold p-1">
+        <div
+          onClick={handleCardClick}
+          className="absolute bottom-0 text-center text-white bg-blue-500 w-full font-bold p-1"
+        >
           View Product
         </div>
       </div>
-      <h3 className="font-[500] truncate">{name}</h3>
-      <p className="text-blue-600 font-[500]">
+      <h3 onClick={handleCardClick} className="font-[500] truncate">
+        {name}
+      </h3>
+      <p onClick={handleCardClick} className="text-blue-600 font-[500]">
         <del className="text-gray-400 font-light">
           Rs{parseInt(price, 10) + 100}
         </del>{' '}
         Rs {parseInt(price)}
       </p>
-      <div className="flex items-center">
+      <div onClick={handleCardClick} className="flex items-center">
         <Rating
           className="w-50%"
           name="small-size"

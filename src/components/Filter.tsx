@@ -27,7 +27,7 @@ export default function Filter() {
   };
 
   return (
-    <div>
+    <div className="hidden md:block">
       <MultipleSelect
         filters={brand}
         onChange={handleBrandFilter}
