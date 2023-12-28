@@ -76,9 +76,9 @@ const Card: React.FC<CardProps> = ({
       </h3>
       <p onClick={handleCardClick} className="text-blue-600 font-[500]">
         <del className="text-gray-400 font-light">
-          Rs{parseInt(price, 10) + 100}
+          $ {parseInt(price, 10) + 100}
         </del>{' '}
-        Rs {parseInt(price)}
+        $ {parseInt(price)}
       </p>
       <div onClick={handleCardClick} className="flex items-center">
         <Rating
